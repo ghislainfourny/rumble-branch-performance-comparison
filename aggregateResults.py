@@ -69,5 +69,5 @@ with open('./aggregate_results.txt', 'w') as output:
         f"{branch2}-Q4: {str(branch2_q4_avg)}\n",
         
         f"{branch1}-Q5: {str(branch1_q5_avg)}\n",
-        f"{branch2}-Q6: {str(branch2_q5_avg)}\n",
+        f"{branch2}-Q5: {str(branch2_q5_avg)}\n",
     ])
