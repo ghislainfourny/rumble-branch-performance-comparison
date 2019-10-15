@@ -52,6 +52,9 @@ do
     done
 done
 
+# cleanup unused output files
 find . -name "*output*.txt" -type d | xargs rm -rf
+
+# run python script that calculates the average performance metrics across repetitions
 python aggregateResults.py $branch1 $branch2 $repetition_count $dataset
 
