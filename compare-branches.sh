@@ -52,3 +52,6 @@ do
     done
 done
 
+find . -name "*output*.txt" -type d | xargs rm -rf
+python aggregateResults.py $branch1 $branch2 $repetition_count $dataset
+

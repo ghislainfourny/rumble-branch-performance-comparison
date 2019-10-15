@@ -1,22 +1,24 @@
 import os
 import sys
 
-branch1 = sys.argv[0]
+# sys.argv[0] is aggregateResults.py
+branch1 = sys.argv[1]
 branch2 = 'master'
 iteration_count = 5
 dataset = 'large'
-# path = '/home/can/Project/rumble-branch-performance/output/'
-path = './output'
+path = './output/'
 
-if (len(sys.argv) == 2):
-    branch2 = sys.argv[1]
 if (len(sys.argv) == 3):
-    iteration_count = sys.argv[2]
+    branch2 = sys.argv[2]
 if (len(sys.argv) == 4):
-    dataset = sys.argv[3]
+    iteration_count = sys.argv[3]
 if (len(sys.argv) == 5):
-    path = sys.argv[4]
-  
+    dataset = sys.argv[4]
+if (len(sys.argv) == 6):
+    path = sys.argv[5]
+
+print(f"branch1: {branch1}, branch2: {branch2}, iteration_count: {iteration_count}, dataset:{dataset}, path: {path}")
+
 branch1_q1_results = []
 branch2_q1_results = []
 
@@ -31,7 +33,7 @@ def Average(lst):
 
 listing = os.listdir(path)
 
-with open('aggregate_results.txt', 'w') as output:
+with open('./aggregate_results.txt', 'w') as output:
     for infile in listing:
         print("current file is: " + infile)
         with open(path + infile, 'r') as input:
@@ -60,12 +62,12 @@ with open('aggregate_results.txt', 'w') as output:
     branch2_q5_avg = Average(branch2_q5_results)
 
     output.writelines([
-        "Branch1-Q1: " + str(branch1_q1_avg) + "\n",
-        "Branch2-Q1: " + str(branch2_q1_avg) + "\n",
+        f"{branch1}-Q1: {str(branch1_q1_avg)}\n",
+        f"{branch2}-Q1: {str(branch2_q1_avg)}\n",
         
-        "Branch1-Q4: " + str(branch1_q4_avg) + "\n",
-        "Branch2-Q4: " + str(branch2_q4_avg) + "\n",
+        f"{branch1}-Q4: {str(branch1_q4_avg)}\n",
+        f"{branch2}-Q4: {str(branch2_q4_avg)}\n",
         
-        "Branch1-Q5: " + str(branch1_q5_avg) + "\n",
-        "Branch2-Q5: " + str(branch2_q5_avg) + "\n",
+        f"{branch1}-Q5: {str(branch1_q5_avg)}\n",
+        f"{branch2}-Q6: {str(branch2_q5_avg)}\n",
     ])
