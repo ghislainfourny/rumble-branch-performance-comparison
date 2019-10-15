@@ -6,8 +6,8 @@ branch1=$1
 branch2=${2:-master}
 repetition_count=${3:-5}
 dataset=${4:-"large"}       # large, medium, small
-project_root=${5:-"${HOME}/Project/rumble"}
-executable=${6:-"${HOME}/Project/rumble/target/spark-rumble-1.1-jar-with-dependencies.jar"}
+project_root=${5:-"../rumble"}
+executable=${6:-"../rumble/target/spark-rumble-1.1-jar-with-dependencies.jar"}
 
 echo $branch1
 echo $branch2
