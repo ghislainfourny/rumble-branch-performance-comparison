@@ -21,7 +21,7 @@ for branch in ${branch1} ${branch2}
 do
     echo "Getting executable for branch: $branch"
     pushd $project_root
-    git co $branch
+    git checkout $branch
     mvn clean compile assembly:single
     popd
     cp $executable "./bin/${branch}_exec.jar" 
