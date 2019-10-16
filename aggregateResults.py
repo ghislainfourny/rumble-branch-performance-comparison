@@ -71,3 +71,8 @@ with open('./aggregate_results.txt', 'w') as output:
         f"{branch1}-Q5: {str(branch1_q5_avg)}\n",
         f"{branch2}-Q5: {str(branch2_q5_avg)}\n",
     ])
+
+if ((branch2_q1_avg > branch1_q1_avg * 11/10)
+    or (branch2_q4_avg > branch1_q4_avg * 11/10)
+    or (branch2_q5_avg > branch1_q5_avg * 11/10)):
+    sys.exit([f"Performance degredation detected... Please investigate recent merges to {branch2}"])

@@ -33,7 +33,7 @@ find . -name "*output*.txt" -type d | xargs rm -rf
 
 export SPARK_SUBMIT_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005;
 
-for ((i=0; i<=repetition_count; i++));
+for ((i=0; i<repetition_count; i++));
 do
     echo "Iteration: $i "
     for query in "query1" "query4" "query5"
