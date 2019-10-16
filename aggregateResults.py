@@ -62,14 +62,17 @@ with open('./aggregate_results.txt', 'w') as output:
     branch1_q5_avg = Average(branch1_q5_results)
     branch2_q5_avg = Average(branch2_q5_results)
 
-    output.writelines([
+    results = [
         '{0}-Q1: {1}\n'.format(branch1, branch1_q1_avg),
         '{0}-Q1: {1}\n'.format(branch2, branch2_q1_avg),
         '{0}-Q4: {1}\n'.format(branch1, branch1_q4_avg),
         '{0}-Q4: {1}\n'.format(branch2, branch2_q4_avg),
         '{0}-Q5: {1}\n'.format(branch1, branch1_q5_avg),
         '{0}-Q5: {1}\n'.format(branch2, branch2_q5_avg),
-    ])
+    ]
+
+    print(''.join(results))
+    output.writelines(results)
 
 if ((branch2_q1_avg > branch1_q1_avg * 11/10)
     or (branch2_q4_avg > branch1_q4_avg * 11/10)
