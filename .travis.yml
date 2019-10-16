@@ -29,7 +29,7 @@ script:
   - head -n 5000000 confusion-2014-03-02.json > confusion5m.json
   - popd
 
-  - ./compare-branches.sh 1.1 master 1 small
+  - ./compare-branches.sh 1.1 master 1 large
 cache:
   directories:
     - $HOME/.m2
