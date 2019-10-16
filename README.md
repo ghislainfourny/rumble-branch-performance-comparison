@@ -1,5 +1,9 @@
 # rumble-branch-performance-comparison
 
+Daily pipeline set up on Travis CI and is accessible [here](https://travis-ci.org/CanBerker/rumble-branch-performance-comparison/builds)  
+
+----------------
+
 Run `./compare_branches.sh $branch_name` to compare the performance of the branch given by **$branch_name** against the **master** branch of the rumble project.  
   
 `aggregate_results.txt` contains the results in the following format: 
