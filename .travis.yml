@@ -34,4 +34,9 @@ cache:
   directories:
     - $HOME/.m2
 
-
+notifications:
+  email:
+    recipients:
+      - gfourny@inf.ethz.ch
+    on_success: change # default: change
+    on_failure: always # default: always
