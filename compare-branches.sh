@@ -7,7 +7,8 @@ branch2=${2:-master}
 repetition_count=${3:-5}
 dataset=${4:-"large"}       # large, medium, small
 project_root=${5:-"../rumble"}
-executable=${6:-"../rumble/target/spark-rumble-1.1-jar-with-dependencies.jar"}
+executable1=${6:-"../rumble/target/spark-rumble-1.1-jar-with-dependencies.jar"}
+executable2=${6:-"../rumble/target/spark-rumble-1.2-jar-with-dependencies.jar"}
 
 echo $branch1
 echo $branch2
@@ -17,15 +18,20 @@ echo $project_root
 echo $executable
 
 # get executables from project branches
-for branch in ${branch1} ${branch2}
-do
-    echo "Getting executable for branch: $branch"
-    pushd $project_root
-    git checkout $branch
-    mvn clean compile assembly:single
-    popd
-    cp $executable "./bin/${branch}_exec.jar" 
-done
+echo "Getting executable for branch: $branch1"
+pushd $project_root
+git checkout $branch1
+mvn clean compile assembly:single
+popd
+cp $executable1 "./bin/${branch1}_exec.jar"
+
+echo "Getting executable for branch: $branch2"
+pushd $project_root
+git checkout $branch2
+mvn clean compile assembly:single
+popd
+cp $executable2 "./bin/${branch2}_exec.jar" 
+
 
 # clean leftover logs and outputs
 find . -name "*log*.txt" -type f | xargs rm -rf 
