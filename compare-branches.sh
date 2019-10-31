@@ -18,20 +18,17 @@ echo $project_root
 echo $executable
 
 # get executables from project branches
-echo "Getting executable for branch: $branch1"
-pushd $project_root
-git checkout $branch1
-mvn clean compile assembly:single
-popd
-cp $executable1 "./bin/${branch1}_exec.jar"
-
-echo "Getting executable for branch: $branch2"
-pushd $project_root
-git checkout $branch2
-mvn clean compile assembly:single
-popd
-cp $executable2 "./bin/${branch2}_exec.jar" 
-
+for branch_index in 1 2
+do
+    branch_name="branch$branch_index"
+    executable_name="executable$branch_index"
+    echo "Getting executable for branch: ${!branch_name}"
+    pushd $project_root
+    git checkout ${!branch_name}
+    mvn clean compile assembly:single
+    popd
+    cp ${!executable_name} "./bin/${!branch_name}_exec.jar"
+done
 
 # clean leftover logs and outputs
 find . -name "*log*.txt" -type f | xargs rm -rf 
