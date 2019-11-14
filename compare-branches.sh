@@ -8,14 +8,15 @@ repetition_count=${3:-5}
 dataset=${4:-"large"}       # large, medium, small
 project_root=${5:-"../rumble"}
 executable1=${6:-"../rumble/target/spark-rumble-1.1-jar-with-dependencies.jar"}
-executable2=${6:-"../rumble/target/spark-rumble-1.3-jar-with-dependencies.jar"}
+executable2=${7:-"../rumble/target/spark-rumble-1.3-jar-with-dependencies.jar"}
 
 echo $branch1
 echo $branch2
 echo $repetition_count
 echo $dataset
 echo $project_root
-echo $executable
+echo $executable1
+echo $executable2
 
 # get executables from project branches
 for branch_index in 1 2
