@@ -30,7 +30,7 @@ script:
   - popd
 
   # .sh, branch1, branch2, dataset_size, project_root, executable1, executable2
-  - ./compare-branches.sh tupleRDD master 1 large "../rumble" "../rumble/target/spark-rumble-1.3-jar-with-dependencies.jar" "../rumble/target/spark-rumble-1.3-jar-with-dependencies.jar"
+  - ./compare-branches.sh 1.2 master 1 large "../rumble" "../rumble/target/spark-rumble-1.1-jar-with-dependencies.jar" "../rumble/target/spark-rumble-1.3-jar-with-dependencies.jar"
 cache:
   directories:
     - $HOME/.m2
