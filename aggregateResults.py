@@ -8,13 +8,13 @@ iteration_count = 5
 dataset = 'large'
 path = './output/'
 
-if (len(sys.argv) == 3):
+if (len(sys.argv) >= 3):
     branch2 = sys.argv[2]
-if (len(sys.argv) == 4):
+if (len(sys.argv) >= 4):
     iteration_count = sys.argv[3]
-if (len(sys.argv) == 5):
+if (len(sys.argv) >= 5):
     dataset = sys.argv[4]
-if (len(sys.argv) == 6):
+if (len(sys.argv) >= 6):
     path = sys.argv[5]
 
 # print(f"branch1: {branch1}, branch2: {branch2}, iteration_count: {iteration_count}, dataset:{dataset}, path: {path}")
