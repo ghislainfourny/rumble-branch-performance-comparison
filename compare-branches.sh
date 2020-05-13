@@ -7,28 +7,23 @@ branch2=${2:-master}
 repetition_count=${3:-5}
 dataset=${4:-"large"}       # large, medium, small
 project_root=${5:-"../rumble"}
-executable1=${6:-"../rumble/target/spark-rumble-1.1-jar-with-dependencies.jar"}
-executable2=${7:-"../rumble/target/spark-rumble-1.3-jar-with-dependencies.jar"}
 
 echo $branch1
 echo $branch2
 echo $repetition_count
 echo $dataset
 echo $project_root
-echo $executable1
-echo $executable2
 
-# get executables from project branches
+# get jars from project branches
 for branch_index in 1 2
 do
     branch_name="branch$branch_index"
-    executable_name="executable$branch_index"
-    echo "Getting executable for branch: ${!branch_name}"
+    echo "Getting jar for branch: ${!branch_name}"
     pushd $project_root
     git checkout ${!branch_name}
     mvn clean compile assembly:single
     popd
-    cp ${!executable_name} "./bin/${!branch_name}_exec.jar"
+    find ../rumble/target/ -name "*.jar" -exec cp {} "./bin/${!branch_name}_exec.jar" \;
 done
 
 # clean leftover logs and outputs
