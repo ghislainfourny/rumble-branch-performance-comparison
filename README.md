@@ -18,7 +18,6 @@ compare_branches.sh takes the following parameters:
 - param3 (_optional_) - **repetition_count**: \# of times to repeat the performance measurement (_default: 5_)
 - param4 (_optional_) - **dataset**: Dataset to run the experiments with (_default: large_)
 - param5 (_optional_) - **project_root**: Root directory of the rumble project (_default: ../rumble_) (_This project is assumed to be co-located with rumble project in the local directory_) 
-- param6 (_optional_) - **executable**: rumble executable(.jar) location (_default: ../rumble/target/spark-rumble-1.1-jar-with-dependencies.jar_)
 
 The Great Language game dataset is used for performance measurements and can be accessed at the below link:
 http://lars.yencken.org/datasets/languagegame/
